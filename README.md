@@ -4,4 +4,4 @@ Projeto construido com o intuíto de mostra na prática a abordagem **deploy fir
 
 A demontração exemplo:
 
-Como eu configurar projetos Node.js - Node.js, Javascript, Docker, Github Actions, Jest, CI/CD
+Como configurar projetos Node.js - Node.js, Javascript, Docker, Github Actions, Jest, CI/CD
