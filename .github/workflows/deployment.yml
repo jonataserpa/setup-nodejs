@@ -37,7 +37,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-      - uses: easingthemes/ssh-deploy@develop
         env: 
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvo --delete"
