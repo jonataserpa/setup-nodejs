@@ -37,8 +37,17 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-      - run: docker build -t setup-nodejs .
-      - run: echo "Deploy"
+      - uses: easingthemes/ssh-deploy@develop
+        env: 
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvo --delete"
+          SOURCE: "src/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}    
+      #- run: docker build -t setup-nodejs .
+      #- run: echo "Deploy"
   deploy-production:
     needs: test-ci
     if: github.ref == 'refs/heads/main'
